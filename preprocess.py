@@ -7,16 +7,6 @@ import numpy as np
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
-#imagem serão referentes aos picos de onda, caracterizando arritmia
-# N - normal beats
-# L - left bundle branch block beats
-# R - right bundle branch block beats
-# A - atrial premature contraction
-# V - premature ventricular contraction
-# P - paced beat
-# E - ventricular escape beat
-# F - ventricular fusion beat
-  
 def get_records():
     #serão utilizados os arquivos .atr
     records = glob('./mit_arrythmia_dat/*.atr')
@@ -31,7 +21,7 @@ def segmentation(records, type, output_dir=''):
     os.makedirs(output_dir, exist_ok=True)
     results = []
     kernel = np.ones((4, 4), np.uint8)
-    count = 1
+    cont = 1
 
     mean_values = []
     
@@ -41,18 +31,15 @@ def segmentation(records, type, output_dir=''):
         
     mean_values = np.mean(np.array(mean_values))
     std_values = 0
-    count = 0
+    cont = 0
     
     for e in tqdm(records):
         signals, fields = wfdb.rdsamp(e, channels=[0])
-        count += len(signals)
+        cont += len(signals)
         for i in signals:
             std_values += (i[0] - mean_values)**2
             
-    std_values = np.sqrt(std_values/count)
-
-    #mean_values = -0.33859
-    #std_values = 0.472368
+    std_values = np.sqrt(std_values/cont)
     
     min_value = mean_values - 3*std_values
     max_value = mean_values + 3*std_values
@@ -81,8 +68,10 @@ def segmentation(records, type, output_dir=''):
                 for spine in plt.gca().spines.values():
                     spine.set_visible(False)
 
-                filename = output_dir+'fig_{}'.format(count)+'.png'
+                filename = output_dir+'fig_{}'.format(cont)+'.png'
                 plt.savefig(filename)
+                plt.cla()
+                plt.clf()
                 plt.close()
                 
                 #escala cinza
@@ -91,15 +80,44 @@ def segmentation(records, type, output_dir=''):
                 im_gray = cv2.resize(im_gray, (192, 128), interpolation=cv2.INTER_LANCZOS4)
                 cv2.imwrite(filename, im_gray)
                 print('imagem {}'.format(filename))
-                count += 1
+                cont += 1
 
     return results
 
 if __name__ == "__main__":
     records = get_records()
     
-    labels = ['N','L','R','A','V','P','E','F']
-    output_dirs = ['NOR/', 'LBBB/', 'RBBB/', 'APC/', 'PVC/', 'PAB/', 'VEB/', 'VFW/']
+    #SUPERCLASSE N
+    labelsN = ['N', 'L', 'R', 'e', 'j']
+    outputN = ['N', 'L', 'R', 'e', 'j']
 
-    for type, output_dir in zip(labels, output_dirs):
-        seg = segmentation(records, type, output_dir='./MITBIH_IMG/'+output_dir)
+    for type, output_dir in zip(labelsN, outputN):
+        seg = segmentation(records, type,'./MITBIH_2D/N/')
+
+    #SUPERCLASSE S
+    labelsS = ['A', 'a', 'J', 'S']
+    outputS = ['A', 'a', 'J', 'S']
+
+    for type, output_dir in zip(labelsS, outputS):
+        seg = segmentation(records, type,'./MITBIH_2D/S/')
+
+    #SUPERCLASSE V
+    labelsV = ['V', 'E']
+    outputV = ['V', 'E']
+
+    for type, output_dir in zip(labelsV, outputV):
+        seg = segmentation(records, type,'./MITBIH_2D/V/')
+
+    #SUPERCLASSE F
+    labelsF = ['F']
+    outputF = ['F']
+
+    for type, output_dir in zip(labelsF, outputF):
+        seg = segmentation(records, type,'./MITBIH_2D/F/')
+
+    #SUPERCLASSE Q
+    labelsQ = ['/', 'f', 'Q']
+    outputQ = ['p', 'f', 'Q']
+
+    for type, output_dir in zip(labelsQ, outputQ):
+        seg = segmentation(records, type,'./MITBIH_2D/Q/')
