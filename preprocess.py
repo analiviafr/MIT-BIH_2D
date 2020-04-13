@@ -68,7 +68,7 @@ def segmentation(records, type, output_dir=''):
                 for spine in plt.gca().spines.values():
                     spine.set_visible(False)
 
-                filename = output_dir+'fig_{}'.format(cont)+'.png'
+                filename = 'fig_{}'.format(cont)+'.png'
                 plt.savefig(filename)
                 plt.cla()
                 plt.clf()
