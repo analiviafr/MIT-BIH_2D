@@ -1,4 +1,4 @@
-Implementação do trabalho de conclusão de curso "Classificação de arritmias cardíacas por meio de redes neurais convolucionais bidimensionais"
+Implementação do trabalho de conclusão de curso **"Classificação de arritmias cardíacas por meio de redes neurais convolucionais bidimensionais"**
 
 Classes | Imagens geradas
 --------|----------------
