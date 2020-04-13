@@ -1,4 +1,4 @@
-# ECG_Classification_CNN2D
+# arrhythmia_classifier_CNN2D
 
 Implementação do trabalho de conclusão de curso **"Classificação de arritmias cardíacas por meio de redes neurais convolucionais bidimensionais"**. O presente trabalho está em processo de desenvolvimento.
 
