@@ -18,7 +18,7 @@ V | 7.236
 F | 803
 Q | 8.038
 
-O dataset de imagens criado também está disponível no [Kaggle](https://www.kaggle.com/analiviafr/ecg-images)
+O dataset de imagens criado também está disponível no [Kaggle](https://www.kaggle.com/analiviafr/ecg-images).
 
 ## SPLIT DATASET
 O script ***split_dataset.py*** divide o dataset de imagens geradas em treinamento, teste e validação.
