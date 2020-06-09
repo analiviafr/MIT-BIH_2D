@@ -8,7 +8,7 @@ O dataset utilizado no presente trabalho foi o [MIT-BIH Arrhythmia Database](htt
 ## PREPROCESS 
 São selecionadas para trabalho as 5 superclasses recomendadas pela **AAMI**, sendo essas: Batimento Normal (N); Batimento Ectópico Supraventricular (S); Batimento Ectópico Ventricular (V); Batimento de Fusão (F); Batimento Desconhecido (Q).
 
-Para gerar as imagens é necessário executar o arquivo ***preprocess.py***. Desse modo, serão geradas 109.445 imagens com resolução de 196x128.
+Para gerar as imagens é necessário executar o arquivo ***preprocess.py***. Desse modo, serão geradas 109.445 imagens com resolução de 256x256.
 
 Classes | Imagens geradas
 --------|----------------
