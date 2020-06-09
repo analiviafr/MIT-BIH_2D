@@ -77,7 +77,7 @@ def segmentation(records, type, output_dir=''):
                 #escala cinza
                 im_gray = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
                 im_gray = cv2.erode(im_gray, kernel, iterations=1)
-                im_gray = cv2.resize(im_gray, (192, 128), interpolation=cv2.INTER_LANCZOS4)
+                im_gray = cv2.resize(im_gray, (256, 256), interpolation=cv2.INTER_LANCZOS4)
                 cv2.imwrite(filename, im_gray)
                 print('imagem {}'.format(filename))
                 cont += 1
