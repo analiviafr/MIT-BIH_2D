@@ -37,5 +37,5 @@ def vgg16_model(input_shape, num_genres, freezed_layers=5):
   return model
 
 if __name__ == '__main__':
-  model = vgg16_model(input_shape=(128, 129, 3), num_genres=10)
+  model = vgg16_model(input_shape=(256, 256, 3), num_genres=5)
   model.summary()
