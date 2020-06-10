@@ -5,7 +5,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import (Conv2D, MaxPooling2D, ZeroPadding2D)
 
 
-def alexnet_model(img_shape=(224, 224, 3), n_classes=10, l2_reg=0.,
+def alexnet_model(img_shape, n_classes, l2_reg=0.,
                   weights=None):
 
     alexnet = Sequential()
@@ -70,5 +70,5 @@ def alexnet_model(img_shape=(224, 224, 3), n_classes=10, l2_reg=0.,
 
 
 if __name__ == '__main__':
-    model = alexnet_model()
+    model = alexnet_model(input_shape=(256,256,3), n_classes=5)
     model.summary()
