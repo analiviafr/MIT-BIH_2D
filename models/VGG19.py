@@ -9,7 +9,7 @@ from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.applications.vgg19 import VGG19
 
-def vgg19_model(input_shape, num_genres, freezed_layers=5):
+def vgg19_model(input_shape, n_classes, freezed_layers=5):
   input_tensor = Input(shape=input_shape)
   vgg16 = VGG19(include_top=False,
                   weights='imagenet',
@@ -19,7 +19,7 @@ def vgg19_model(input_shape, num_genres, freezed_layers=5):
   top.add(Flatten(input_shape=vgg16.output_shape[1:]))
   top.add(Dense(256, activation='relu'))
   top.add(Dropout(0.5))
-  top.add(Dense(num_genres, activation='softmax'))
+  top.add(Dense(n_classes, activation='softmax'))
   
   model = Model(inputs=vgg16.input, outputs=top(vgg16.output))
   for layer in model.layers[:freezed_layers]:
@@ -28,5 +28,5 @@ def vgg19_model(input_shape, num_genres, freezed_layers=5):
   return model
 
 if __name__ == '__main__':
-  model = vgg19_model(input_shape=(256, 256, 3), num_genres=5)
+  model = vgg19_model(input_shape=(256, 256, 3), n_classes=5)
   model.summary()
