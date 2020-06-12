@@ -16,7 +16,7 @@ N | 90.589
 S | 2.779
 V | 7.236
 F | 803
-Q | 8.038
+Q | 8.039
 
 O dataset de imagens criado também está disponível no [Kaggle](https://www.kaggle.com/analiviafr/ecg-images).
 
