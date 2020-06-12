@@ -5,14 +5,14 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.convolutional import (Conv2D, MaxPooling2D, ZeroPadding2D)
 
 
-def alexnet_model(img_shape, n_classes, l2_reg=0.,
+def alexnet_model(input_shape, n_classes, l2_reg=0.,
                   weights=None):
 
     alexnet = Sequential()
 
     # Layer 1
     alexnet.add(Conv2D(96, (11, 11),
-                       input_shape=img_shape,
+                       input_shape=input_shape,
                        padding='same',
                        kernel_regularizer=l2(l2_reg)))
     alexnet.add(BatchNormalization())
