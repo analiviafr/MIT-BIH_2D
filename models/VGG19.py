@@ -9,7 +9,7 @@ from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.applications.vgg19 import VGG19
 
-def vgg19_model(input_shape, n_classes, freezed_layers=5):
+def vgg19_model(input_shape, n_classes):
   input_tensor = Input(shape=input_shape)
   vgg19 = VGG19(include_top=False,
                   weights='imagenet',
@@ -22,8 +22,6 @@ def vgg19_model(input_shape, n_classes, freezed_layers=5):
   top.add(Dense(n_classes, activation='softmax'))
   
   model = Model(inputs=vgg19.input, outputs=top(vgg19.output))
-  for layer in model.layers[:freezed_layers]:
-    layer.trainable = False
 
   return model
 
