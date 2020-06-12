@@ -9,7 +9,7 @@ from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.applications.vgg16 import VGG16
 
-def vgg16_model(input_shape, n_classes, freezed_layers=5):
+def vgg16_model(input_shape, n_classes):
   input_tensor = Input(shape=input_shape)
   vgg16 = VGG16(include_top=False,
                   weights='imagenet',
@@ -22,8 +22,6 @@ def vgg16_model(input_shape, n_classes, freezed_layers=5):
   top.add(Dense(n_classes, activation='softmax'))
   
   model = Model(inputs=vgg16.input, outputs=top(vgg16.output))
-  for layer in model.layers[:freezed_layers]:
-    layer.trainable = False
 
   return model
 
