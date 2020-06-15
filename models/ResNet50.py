@@ -26,5 +26,5 @@ def ResNet50_model(input_shape, n_classes):
   return model
 
 if __name__ == '__main__':
-  model = ResNet50_model(input_shape=(128, 129, 3), n_classes=10)
+  model = ResNet50_model(input_shape=(128, 129, 3), n_classes=5)
   model.summary()
