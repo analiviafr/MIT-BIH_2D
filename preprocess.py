@@ -92,32 +92,32 @@ if __name__ == "__main__":
     outputN = ['N', 'L', 'R', 'e', 'j']
 
     for type, output_dir in zip(labelsN, outputN):
-        seg = segmentation(records, type,'./MITBIH_2D/N/')
+        seg = segmentation(records, type,'./images/N/')
 
     #SUPERCLASSE S
     labelsS = ['A', 'a', 'J', 'S']
     outputS = ['A', 'a', 'J', 'S']
 
     for type, output_dir in zip(labelsS, outputS):
-        seg = segmentation(records, type,'./MITBIH_2D/S/')
+        seg = segmentation(records, type,'./images/S/')
 
     #SUPERCLASSE V
     labelsV = ['V', 'E']
     outputV = ['V', 'E']
 
     for type, output_dir in zip(labelsV, outputV):
-        seg = segmentation(records, type,'./MITBIH_2D/V/')
+        seg = segmentation(records, type,'./images/V/')
 
     #SUPERCLASSE F
     labelsF = ['F']
     outputF = ['F']
 
     for type, output_dir in zip(labelsF, outputF):
-        seg = segmentation(records, type,'./MITBIH_2D/F/')
+        seg = segmentation(records, type,'./images/F/')
 
     #SUPERCLASSE Q
     labelsQ = ['/', 'f', 'Q']
     outputQ = ['p', 'f', 'Q']
 
     for type, output_dir in zip(labelsQ, outputQ):
-        seg = segmentation(records, type,'./MITBIH_2D/Q/')
+        seg = segmentation(records, type,'./images/Q/')
