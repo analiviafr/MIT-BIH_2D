@@ -13,7 +13,7 @@ V | Batimento Ectópico Ventricular |  V, E
 F | Batimento de Fusão | F
 Q | Batimento Desconhecido | /, f, Q
 
-Já para a aquisição das imagens bidimensionais, os registros de ECG oriudos do datase [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/) foram pré-processados.
+Já para a aquisição das imagens bidimensionais, foi realizado o pré-processamento do dataset [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/).
 
 ## PREPROCESS 
 Foram selecionadas para trabalho as 5 superclasses recomendadas pela **AAMI**, sendo essas: Batimento Normal (N); Batimento Ectópico Supraventricular (S); Batimento Ectópico Ventricular (V); Batimento de Fusão (F); Batimento Desconhecido (Q).
