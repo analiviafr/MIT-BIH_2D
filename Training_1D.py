@@ -7,15 +7,16 @@ Original file is located at
     https://colab.research.google.com/drive/15qUOLJ6dPFBkWhDlVxXt8HFQHx0m8GKa
 """
 
-from VGG16 import vgg16_model
-
 import keras
 import pandas as pd
 import numpy as np
 from keras.utils import np_utils
 from keras import optimizers, losses, activations
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
-from sklearn.metrics import f1_score, accuracy_score, confusion_matrix, precision_score, recall_score,cohen_kappa_score
+from sklearn.metrics import f1_score, accuracy_score, multilabel_confusion_matrix, confusion_matrix, precision_score, recall_score,cohen_kappa_score
+from imblearn.metrics import specificity_score
+
+from VGG16 import vgg16_model
 
 df_train = pd.read_csv('/content/drive/My Drive/analivia/ecg_signals/mitbih_train.csv', header=None)
 df_test = pd.read_csv('/content/drive/My Drive/analivia/ecg_signals/mitbih_test.csv', header=None)
