@@ -15,6 +15,7 @@ from keras import optimizers, losses, activations
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
 from sklearn.metrics import f1_score, accuracy_score, multilabel_confusion_matrix, confusion_matrix, precision_score, recall_score,cohen_kappa_score
 from imblearn.metrics import specificity_score
+import matplotlib.pyplot as plt
 
 from VGG16 import vgg16_model
 
@@ -64,9 +65,6 @@ print(specificity_score(y_test, predicted_classes, average='micro'))
 print('F1-score')
 print(f1_score(y_test, predicted_classes, average='micro')) 
 
-#GRÁFICO PARA COMPARAR RESULTADOS DO TESTE
-import matplotlib.pyplot as plt
-
 gof_train_acc  = history.history['accuracy']
 gof_train_loss = history.history['loss'    ]
 gof_valid_acc  = history.history['val_accuracy' ]
@@ -99,12 +97,6 @@ plt.show()
 # Graph Loss
 plt.figure(figsize = (15,5))
 plt.plot(epochs, gof_train_loss, 'b', label = 'Training')
-plt.title('Loss')
-plt.legend()
-plt.show()
-
-plt.figure(figsize = (15,5))
-plt.plot(predicted_classes, y_test, 'b', label = 'Training')
 plt.title('Loss')
 plt.legend()
 plt.show()
