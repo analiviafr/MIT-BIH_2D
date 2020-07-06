@@ -43,7 +43,7 @@ def vgg19_model(input_shape, n_classes):
   model.add(Dropout(0.5))
   model.add(Dense(4096, activation='relu'))
   model.add(Dropout(0.5))
-  model.add(Dense(n_classes, activation='relu'))  
+  model.add(Dense(n_classes, activation='softmax'))  
   
   return model
 
