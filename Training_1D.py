@@ -13,11 +13,11 @@ import numpy as np
 from keras.utils import np_utils
 from keras import optimizers, losses, activations
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
-from sklearn.metrics import f1_score, accuracy_score, multilabel_confusion_matrix, confusion_matrix, precision_score, recall_score,cohen_kappa_score
+from sklearn.metrics import f1_score, accuracy_score, multilabel_confusion_matrix, precision_score, recall_score,cohen_kappa_score
 from imblearn.metrics import specificity_score
 import matplotlib.pyplot as plt
 
-from VGG16 import vgg16_model
+from proposed_model import proposed_model
 
 df_train = pd.read_csv('/content/drive/My Drive/analivia/ecg_signals/mitbih_train.csv', header=None)
 df_test = pd.read_csv('/content/drive/My Drive/analivia/ecg_signals/mitbih_test.csv', header=None)
@@ -28,7 +28,7 @@ y_train = np.array(df_train[187].values).astype(np.int8)
 X_test = np.array(df_test[list(range(187))].values)[..., np.newaxis]
 y_test = np.array(df_test[187].values).astype(np.int8)
 
-model = vgg16_model(input_shape=(187,1),n_classes=5)
+model = proposed_model(input_shape=(187,1),n_classes=5)
 opt = optimizers.Adam(lr = 0.001)
 model.compile(optimizer = opt, loss = 'sparse_categorical_crossentropy', metrics = ['accuracy'])
 
@@ -46,9 +46,6 @@ predicted_classes = np.argmax(preds, axis = -1)
 
 print('Matriz de Confusão')
 print(multilabel_confusion_matrix(y_test, predicted_classes))
-
-print('Matriz de Confusão')
-print(confusion_matrix(y_test, predicted_classes))
 
 print('Accuracia')
 print(accuracy_score(y_test, predicted_classes))
@@ -83,20 +80,6 @@ plt.show()
 plt.figure(figsize = (15,5))
 plt.plot(epochs, gof_train_loss, 'b', label = 'Training')
 plt.plot(epochs, gof_valid_loss, 'r', label = 'Validation')
-plt.title('Loss')
-plt.legend()
-plt.show()
-
-# Graph Accuracy
-plt.figure(figsize = (15,5))
-plt.plot(epochs, gof_train_acc, 'b', label = 'Training')
-plt.title('Accuracy')
-plt.legend()
-plt.show()
-
-# Graph Loss
-plt.figure(figsize = (15,5))
-plt.plot(epochs, gof_train_loss, 'b', label = 'Training')
 plt.title('Loss')
 plt.legend()
 plt.show()
