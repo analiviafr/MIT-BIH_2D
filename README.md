@@ -1,6 +1,6 @@
 # Arrhythmia Classifier
 
-Implementação do trabalho de conclusão de curso **"Classificação de arritmias cardíacas por meio de redes neurais convolucionais unidimensionais e bidimensionais"**. O presente trabalho está em processo de desenvolvimento.
+Implementação do trabalho de iniciação científica **"Classificação de arritmias cardíacas por meio de redes neurais convolucionais unidimensionais e bidimensionais"**.
 
 ## DATASETS 
 Para a realização dos experimentos unidimensionais foi utilizado o dataset [ECG Heartbeat Classification](www.kaggle.com/shayanfazeli/heartbeat). A base de dados é composta por 104446 registros de ECG referentes às cinco superclasses de arritmias cardíacas recomendadas pelo padrão ANSI/AAMI/ISO EC57. As superclasses recomendadas por esse padrão são resultado do agrupamento de 15 classes do dataset [MIT-BIH Arrhythmia Database](https://physionet.org/content/mitdb/1.0.0/) e estão apresentadas na tabela abaixo.
