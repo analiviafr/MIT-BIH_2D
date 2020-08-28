@@ -11,7 +11,7 @@ import numpy as np
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import optimizers
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
-from sklearn.metrics import classification_report, multilabel_confusion_matrix, confusion_matrix,f1_score, accuracy_score, recall_score, precision_score
+from sklearn.metrics import classification_report, multilabel_confusion_matrix, f1_score, accuracy_score, recall_score, precision_score
 from imblearn.metrics import specificity_score
 import matplotlib.pyplot as plt
 
@@ -28,7 +28,7 @@ train_data_generator = train_generator.flow_from_directory('/content/drive/My Dr
 
 test_data_generator = test_generator.flow_from_directory('/content/drive/My Drive/experimentos/ecg_img/test')
 
-model = vgg16_model(input_shape=(256, 256, 3), n_classes=5)
+model = proposed_model(input_shape=(256, 256, 3), n_classes=5)
 opt = optimizers.Adam(lr = 0.05)
 model.compile(optimizer = opt, loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
@@ -37,7 +37,7 @@ rlr = ReduceLROnPlateau(monitor='accuracy', mode="max", patience=5, verbose=2)
 checkpoint = ModelCheckpoint(filepath ='pesos.h5', monitor='accuracy', verbose=1, save_best_only=True, mode='max')
 callbacks_list = [checkpoint, es, rlr]
 
-history = model.fit_generator(train_data_generator, epochs= 50, steps_per_epoch=(train_data_generator.samples/train_data_generator.batch_size), 
+history = model.fit_generator(train_data_generator, epochs= 50, callbacks=callbacks_list, steps_per_epoch=(train_data_generator.samples/train_data_generator.batch_size), 
                                       validation_data = test_data_generator, validation_steps=(test_data_generator.samples/test_data_generator.batch_size))
 
 model.load_weights('pesos.h5')
@@ -52,9 +52,6 @@ class_labels = list(test_data_generator.class_indices.keys())
 
 print('Matriz de Confusão')
 print(multilabel_confusion_matrix(true_classes, predicted_classes))
-
-print('Matriz de Confusão')
-print(confusion_matrix(true_classes, predicted_classes))
 
 print('Accuracia')
 print(accuracy_score(true_classes, predicted_classes))
