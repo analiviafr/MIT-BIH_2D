@@ -30,3 +30,10 @@ Q | 8.039
 
 ## SPLIT DATASET
 O script ***split_dataset.py*** seleciona 80% das imagens geradas para o conjunto de treinamento e 20% para o conjunto de teste.
+
+## TRAINING
+Foi desenvolvido uma arquitetura de CNN bidimensional, representada pela figura abaixo, que pode ser treinada por meio da execução do script **Training_2D.py**. Também foi implementada uma representação unidimensional dessa arquitetura, a qual pode ser treinada a partir de **Training_1D**.
+
+<p align="center">
+  <img src="/docs/proposed_model.png" >
+</p>
