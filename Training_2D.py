@@ -22,9 +22,7 @@ train_generator = ImageDataGenerator(rotation_range = 7,
                                      horizontal_flip = True, shear_range = 0.2,
                                      height_shift_range = 0.07, zoom_range = 0.2)
 
-test_generator = ImageDataGenerator(rotation_range = 7, horizontal_flip = True,
-                                    shear_range = 0.2, height_shift_range = 0.07,
-                                    zoom_range = 0.2)
+test_generator = ImageDataGenerator()
 
 train_data_generator = train_generator.flow_from_directory('/content/drive/My Drive/experimentos/ecg_img/train')
 
