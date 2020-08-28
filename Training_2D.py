@@ -15,7 +15,7 @@ from sklearn.metrics import classification_report, multilabel_confusion_matrix, 
 from imblearn.metrics import specificity_score
 import matplotlib.pyplot as plt
 
-from VGG16 import vgg16_model
+from proposed_model import proposed_model
 
 #normalização
 train_generator = ImageDataGenerator(rotation_range = 7,
