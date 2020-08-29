@@ -28,6 +28,11 @@ V | 7.236
 F | 803
 Q | 8.039
 
+A figura abaixo ilustra as imagens obtidas.
+<p align="center">
+  <img src="/docs/imagesECG2.png" >
+</p>
+
 ## SPLIT DATASET
 O script ***split_dataset.py*** seleciona 80% das imagens geradas para o conjunto de treinamento e 20% para o conjunto de teste.
 
