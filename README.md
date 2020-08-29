@@ -18,7 +18,10 @@ Já para a aquisição das imagens bidimensionais, foi realizado o pré-processa
 ## PREPROCESS 
 Foram selecionadas para trabalho as 5 superclasses recomendadas pela **AAMI**, sendo essas: Batimento Normal (N); Batimento Ectópico Supraventricular (S); Batimento Ectópico Ventricular (V); Batimento de Fusão (F); Batimento Desconhecido (Q).
 
-Para gerar as imagens é necessário executar o arquivo ***preprocess.py***. Desse modo, serão geradas 109446 imagens com resolução de 256x256.
+Para gerar as imagens é necessário executar o arquivo ***preprocess.py***. Desse modo, serão geradas 109446 imagens com resolução de 256x256, conforme ilustrado pela figura abaixo.
+<p align="center">
+  <img src="/docs/imagesECG2.png" >
+</p>
 
 Classes | Imagens geradas
 --------|----------------
@@ -28,10 +31,6 @@ V | 7.236
 F | 803
 Q | 8.039
 
-A figura abaixo ilustra as imagens obtidas.
-<p align="center">
-  <img src="/docs/imagesECG2.png" >
-</p>
 
 ## SPLIT DATASET
 O script ***split_dataset.py*** seleciona 80% das imagens geradas para o conjunto de treinamento e 20% para o conjunto de teste.
