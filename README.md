@@ -65,7 +65,7 @@ O modelo proposto também se destacou em todas as métricas, o que indica que a 
   <img src="/docs/confusion_matrix_2D.PNG" >
 </p>
 
-Por fim, o modelo proposto foi adaptado para uma CNN 1D, a qual recebeu como entrada sinais de ECG oriundo da base de dados ECG [ECG Heartbeat Classification](www.kaggle.com/shayanfazeli/heartbeat). Os resultados alcançados são expressos na tabela abaixo.
+Por fim, o modelo proposto foi adaptado para uma CNN 1D, a qual recebeu como entrada sinais de ECG oriundo da base de dados [ECG Heartbeat Classification](www.kaggle.com/shayanfazeli/heartbeat). Os resultados alcançados são expressos na tabela abaixo.
 
 *Learning Rate* | Acurácia (%)| Precisão (%)| Sensibilidade (%)| Especificidade (%)| *F1-Score* (%)
 ----------------|-------------|-------------|------------------|-------------------|----------------
